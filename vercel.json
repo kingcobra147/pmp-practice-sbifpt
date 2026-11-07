@@ -1,0 +1,14 @@
+{
+ "$schema":"https://openapi.vercel.sh/vercel.json",
+ "framework":"vite",
+ "installCommand":"npm ci",
+ "buildCommand":"npm run build",
+ "outputDirectory":"dist",
+ "functions":{"api/index.mjs":{"includeFiles":"{data,server-assets}/**","maxDuration":60}},
+ "rewrites":[
+  {"source":"/api/:path*","destination":"/api/index?route=:path*"},
+  {"source":"/sources/:name","destination":"/api/index?route=file&kind=sources&name=:name"},
+  {"source":"/downloads/:name","destination":"/api/index?route=file&kind=downloads&name=:name"}
+ ],
+ "headers":[{"source":"/(.*)","headers":[{"key":"X-Content-Type-Options","value":"nosniff"},{"key":"Referrer-Policy","value":"same-origin"},{"key":"X-Frame-Options","value":"SAMEORIGIN"}]}]
+}
