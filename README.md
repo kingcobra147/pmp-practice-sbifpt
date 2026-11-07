@@ -1,6 +1,10 @@
-# PMP Practice Lab — Vercel, nhiều tài khoản
+# PMP Practice Lab — Tự ôn PMP, Vercel & nhiều tài khoản
 
 Bản dành riêng cho Vercel, thay cho gói Node/Docker trước đó. Giao diện React + Vite, API Vercel Functions (Node.js 22), database Turso/libSQL qua mạng. Không dùng SQLite file để lưu tiến độ trên Vercel.
+
+## Bản nâng cấp tự ôn
+
+Đã bổ sung kế hoạch hôm nay, mục tiêu hằng ngày, ôn tập cách quãng, thống kê điểm yếu/chủ đề, biểu đồ 8 tuần, bộ lọc tạo bài, ghi chú và mức tự tin. Có bản nháp trên máy, tự thử lại khi kết nối lỗi và lựa chọn phục hồi khi xung đột. Xem [hướng dẫn nâng cấp](NANG_CAP.md) để biết cách dùng và giới hạn.
 
 ## Có lưu riêng dữ liệu từng người không?
 
@@ -9,7 +13,7 @@ Có. Mỗi người đăng ký bằng email và mật khẩu riêng, có `user_i
 - Không dùng chung tài khoản giữa các học viên nếu muốn tách tiến độ.
 - Có kiểm tra phiên bản dữ liệu: khi hai tab/thiết bị cùng sửa, phiên cũ không âm thầm ghi đè phiên mới. Ứng dụng yêu cầu tải lại, có nút tải bản sao JSON trước khi tải lại.
 - Thi có hẹn giờ giữ mốc kết thúc tuyệt đối. Hết giờ lúc đóng trình duyệt, bài tự nộp khi mở lại ứng dụng.
-- Có tối đa 100 lượt làm bài gần nhất cho mỗi tài khoản; tiến độ tự lưu sau thay đổi, cần Internet.
+- Có tối đa 100 lượt làm bài gần nhất cho mỗi tài khoản; tiến độ lưu nháp trên máy sau thay đổi rồi tự đồng bộ khi kết nối hoạt động. Thống kê theo câu tiếp tục tích lũy ngoài giới hạn 100 bài.
 - Mật khẩu được băm scrypt với salt riêng. Cookie phiên HttpOnly, SameSite=Lax và Secure khi chạy trên Vercel. Token phiên trong database chỉ lưu dạng hash.
 - Đăng ký yêu cầu mã tham gia do quản trị cung cấp. Không có xác minh email hoặc gửi email khôi phục; email hiện dùng làm tên đăng nhập. Có công cụ quản trị đặt lại mật khẩu.
 

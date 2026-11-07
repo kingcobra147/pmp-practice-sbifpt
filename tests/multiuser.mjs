@@ -4,10 +4,10 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {randomBytes} from 'node:crypto';
 const temp=mkdtempSync(join(tmpdir(),'pmp-multiuser-'));process.env.TURSO_DATABASE_URL='file:'+join(temp,'test.db');process.env.APP_SIGNUP_CODE=randomBytes(20).toString('hex');delete process.env.VERCEL;
-const {handle}=await import('../api/index.mjs');const {client}=await import('../lib/db.mjs');const base='http://localhost:3000';
+const {handle}=await import('../api/index.mjs');const {client,bank:questionBank}=await import('../lib/db.mjs');const {normalizeState}=await import('../shared/study.mjs');const base='http://localhost:3000';
 // Keep request bodies explicit to exercise actual auth and state parsing.
 async function call(route,opts={}){const {method='GET',body,cookie,userId,revision,origin}=opts;return handle(new Request(`${base}/api/${route}`,{method,headers:{...(cookie?{Cookie:cookie}:{}),...(userId?{'X-User-ID':userId}:{}),...(revision!==undefined?{'If-Match':String(revision)}:{}),...(origin?{Origin:origin}:{}),...(body!==undefined?{'Content-Type':'application/json'}:{})},...(body!==undefined?{body:JSON.stringify(body)}:{})}))}
-const password=randomBytes(20).toString('hex'),state={bookmarks:['t2-q044'],wrong:['t1-q001'],attempts:[],run:null};
+const password=randomBytes(20).toString('hex'),state=normalizeState({bookmarks:['t2-q044'],wrong:['t1-q001'],attempts:[],run:null,learning:{'t1-q001':{note:'Ôn lại cách xử lý xung đột',confidence:2,topic:'Nhóm & lãnh đạo'}},settings:{dailyGoal:30}},questionBank);
 try{
  assert.equal((await call('bank')).status,401);assert.equal((await call('auth/me')).status,401);
  assert.equal((await call('auth/register',{method:'POST',body:{email:'a@example.com',name:'Person A',password,inviteCode:'wrong'}})).status,403);
@@ -16,6 +16,15 @@ try{
  assert.equal((await call('auth/login',{method:'POST',body:{email:'a@example.com',password:'wrong'}})).status,401);
  const bank=(await(await call('bank',{cookie:a.cookie})).json()).questions;assert.equal(bank.length,1127);assert.equal(bank.filter(q=>q.status==='ready').length,1122);
  assert.equal((await call('state',{cookie:a.cookie,userId:b.user.id})).status,403);
+ for(const invalid of [
+  {...state,attempts:[{id:'bad',ids:null}]},
+  {...state,bookmarks:[42]},
+  {...state,wrong:['missing-question']},
+  {...state,learning:{'t1-q001':{note:42}}},
+  {...state,settings:{dailyGoal:0}},
+  {...state,activity:{'2026-02-30':{answered:1,correct:1,seconds:1}}},
+  {...state,run:{ids:['t1-q001'],index:9,answers:{},flags:[],revealed:[],started:1,endAt:null,mode:'practice'}}
+ ])assert.equal((await call('state',{method:'PUT',cookie:a.cookie,userId:a.user.id,revision:0,body:invalid})).status,400);
  assert.equal((await call('state',{method:'PUT',cookie:a.cookie,userId:a.user.id,revision:0,body:state})).status,200);
  assert.equal((await call('state',{method:'PUT',cookie:a.cookie,userId:a.user.id,revision:0,body:state})).status,409);
  assert.equal((await call('state',{method:'PUT',cookie:a.cookie,userId:a.user.id,revision:1,origin:'https://other.example',body:state})).status,403);

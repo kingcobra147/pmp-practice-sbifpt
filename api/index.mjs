@@ -2,14 +2,15 @@ import {randomBytes,randomUUID,scrypt as scryptCallback,timingSafeEqual,createHa
 import {promisify} from 'node:util';
 import {readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
-import {database} from '../lib/db.mjs';
+import {database,bank} from '../lib/db.mjs';
+import {normalizeState,MAX_STATE_BYTES} from '../shared/study.mjs';
 const scrypt=promisify(scryptCallback),age=30*24*60*60;
 const hash=s=>createHash('sha256').update(s).digest('hex');
 function equal(a,b){return timingSafeEqual(Buffer.from(hash(a),'hex'),Buffer.from(hash(b),'hex'))}
 function json(value,status=200,headers={}){return Response.json(value,{status,headers:{'Cache-Control':'no-store',...headers}})}
 function token(req){const match=(req.headers.get('cookie')||'').match(/(?:^|;\s*)pmp_session=([^;]+)/);return match?match[1]:null}
 function cookie(req,value,ttl=age){return `pmp_session=${value}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${ttl}${process.env.VERCEL||new URL(req.url).protocol==='https:'?'; Secure':''}`}
-async function body(req){const raw=await req.text();if(Buffer.byteLength(raw)>1500000)throw Object.assign(Error('Dữ liệu quá lớn'),{status:413});try{return JSON.parse(raw)}catch{throw Object.assign(Error('JSON không hợp lệ'),{status:400})}}
+async function body(req){const raw=await req.text();if(Buffer.byteLength(raw)>MAX_STATE_BYTES)throw Object.assign(Error('Dữ liệu quá lớn'),{status:413});try{return JSON.parse(raw)}catch{throw Object.assign(Error('JSON không hợp lệ'),{status:400})}}
 async function user(req){const value=token(req);if(!value||value.length!==64)return null;const db=await database();const result=await db.execute({sql:'SELECT u.id,u.email,u.name FROM sessions s JOIN users u ON u.id=s.user_id WHERE s.token_hash=? AND s.expires_at>?',args:[hash(value),Date.now()]});return result.rows[0]||null}
 async function session(req,person){const value=randomBytes(32).toString('hex');const db=await database();await db.execute({sql:'INSERT INTO sessions(token_hash,user_id,expires_at) VALUES(?,?,?)',args:[hash(value),person.id,Date.now()+age*1000]});return json({user:{id:person.id,email:person.email,name:person.name}},200,{'Set-Cookie':cookie(req,value)})}
 async function rateLimit(req,email){
@@ -47,7 +48,7 @@ export async function handle(req){
   if(req.headers.get('x-user-id')!==person.id)return json({error:'Phiên đăng nhập đã thay đổi. Hãy tải lại trang.'},403);
   if(method==='GET'){const row=(await db.execute({sql:'SELECT payload,revision FROM study_state WHERE user_id=?',args:[person.id]})).rows[0];return json(row?JSON.parse(String(row.payload)):{},200,{'ETag':String(row?.revision||0)})}
   if(method==='PUT'){
-   const state=await body(req);if(!state||!Array.isArray(state.bookmarks)||!Array.isArray(state.wrong)||!Array.isArray(state.attempts)||state.attempts.length>100)return json({error:'Tiến độ không hợp lệ'},400);
+   const state=normalizeState(await body(req),bank);
    const revision=Number(req.headers.get('if-match'));if(!req.headers.has('if-match')||!Number.isSafeInteger(revision)||revision<0)return json({error:'Thiếu phiên bản dữ liệu'},400);
    const args=[JSON.stringify(state),revision+1,Date.now(),person.id,revision];
    const result=revision===0?await db.execute({sql:'INSERT INTO study_state(payload,revision,updated_at,user_id) VALUES(?,?,?,?) ON CONFLICT(user_id) DO NOTHING',args:args.slice(0,4)}):await db.execute({sql:'UPDATE study_state SET payload=?,revision=?,updated_at=? WHERE user_id=? AND revision=?',args});
@@ -63,6 +64,6 @@ export async function handle(req){
   headers['Content-Length']=String(end-start+1);return new Response(method==='HEAD'?null:file.subarray(start,end+1),{status,headers});
  }
  return json({error:'Không tìm thấy API'},404);
- }catch(e){console.error('PMP API:',e.code||e.name);return json({error:e.status?e.message:'Không kết nối được database. Kiểm tra cấu hình server hoặc thử lại.'},e.status||503)}
+ }catch(e){if(!e.status||e.status>=500)console.error('PMP API:',e.code||e.name);return json({error:e.status?e.message:'Không kết nối được database. Kiểm tra cấu hình server hoặc thử lại.'},e.status||503)}
 }
 export default {fetch:handle};
