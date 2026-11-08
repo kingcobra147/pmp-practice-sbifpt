@@ -1,6 +1,6 @@
 {
   "name": "pmp-practice-vercel",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -10,7 +10,7 @@
     "build": "vite build",
     "start": "node scripts/local-server.mjs",
     "db:init": "node scripts/init-db.mjs",
-    "test": "node tests/multiuser.mjs && node --test tests/study.test.mjs tests/sync.test.mjs"
+    "test": "node tests/multiuser.mjs && node --test tests/study.test.mjs tests/sync.test.mjs tests/tips.test.mjs"
   },
   "dependencies": {
     "@libsql/client": "0.18.0",

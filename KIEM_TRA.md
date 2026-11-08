@@ -1,9 +1,9 @@
-# Kết quả kiểm tra bản tự ôn v3 — 07/11/2026
+# Kết quả kiểm tra bản tự ôn v3.1 — 08/11/2026
 
 ## Kiểm tra tự động
 
 - `npm run build`: thành công với React/Vite. Có cảnh báo sẵn có của lucide-react về chỉ thị `use client`; không làm thất bại build.
-- `npm test`: kiểm tra tích hợp nhiều tài khoản và 15 ca kiểm thử chức năng đều thành công.
+- `npm test`: kiểm tra tích hợp nhiều tài khoản và 26 ca kiểm thử chức năng đều thành công.
 - Kiểm tra 2 tài khoản: dữ liệu tách theo user_id, từ chối đọc/ghi chéo; phiên đăng xuất bị thu hồi.
 - Kiểm tra lưu/đọc lại ghi chú, mức tự tin và mục tiêu; API từ chối lịch sử sai cấu trúc, mã câu lạ, ghi chú sai kiểu, mục tiêu sai và ngày không hợp lệ.
 - 1.127 câu trong ngân hàng; 1.122 câu đủ điều kiện chấm điểm. PDF yêu cầu đăng nhập, đường dẫn ngoài danh sách bị từ chối.
@@ -26,3 +26,13 @@ Dùng tài khoản và database tạm, không tác động database thật:
 ## Giới hạn xác minh
 
 Chưa deploy lên Vercel hoặc kết nối Turso Production của người dùng. Không thay đổi dữ liệu Production. Chưa kiểm tra toàn bộ trình duyệt/thiết bị thực tế; hỗ trợ cảnh báo rời trang và dung lượng localStorage phụ thuộc trình duyệt. Đây chưa phải PWA chạy hoàn toàn ngoại tuyến. Phân loại chủ đề là gợi ý từ khóa, có thể chỉnh theo cá nhân.
+
+## Mẹo làm bài v3.1
+
+- Có 44 mẹo song ngữ và 44 bộ quy tắc riêng, liên kết nguồn và nhóm hợp lệ.
+- Kiểm thử ngữ cảnh Scrum/Predictive, FIRST/NEXT/NOT trong câu hỏi, phân biệt Share/Transfer và Enhance/Exploit; không nhầm checklist với check sheet.
+- Kiểm thử không đọc lựa chọn/khóa đáp án/lời giải để ghép mẹo; từ khóa chỉ nằm trong đáp án nhiễu không làm hiện mẹo. Insurance trong câu hỏi ghi nhận vào charter không tự ghép Transfer.
+- Tìm tiếng Anh, tiếng Việt có/không dấu và lọc nhóm chạy qua kiểm thử.
+- Trình duyệt: menu Mẹo làm bài, tìm insurance có đúng một mẹo và một câu liên quan; bắt đầu luyện câu đó, panel ban đầu thu gọn, bấm mở hiện đúng dấu hiệu insurance và nội dung Anh/Việt. Các lựa chọn vẫn chưa được chọn.
+- Kiểm tra giao diện ở desktop và 390 × 844; không tràn ngang ở thẻ mẹo được kiểm tra. Ảnh trong review/.
+- Không thêm API AI, chụp màn hình hoặc schema database; không sửa khóa đáp án/câu hỏi nguồn.

@@ -1,0 +1,787 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-11-08",
+  "sources": {
+    "pmi-sample": {
+      "label": "PMI · Sample exam questions",
+      "url": "https://www.pmi.org/certifications/project-management-pmp"
+    },
+    "pmi-conflict": {
+      "label": "PMI · Managing conflict",
+      "url": "https://www.pmi.org/learning/library/understanding-managing-conflict-resolution-strategies-6484"
+    },
+    "pmi-escalation": {
+      "label": "PMI · Elevating an issue",
+      "url": "https://www.pmi.org/learning/library/2019/04/07/15/07/elevating-issue-gaining-managements-attention-3182"
+    },
+    "pmi-risk": {
+      "label": "PMI · Risk and issue",
+      "url": "https://www.pmi.org/learning/library/project-risk-management-success-tool-6078"
+    },
+    "pmi-po": {
+      "label": "PMI · Product Owner",
+      "url": "https://www.pmi.org/disciplined-agile/product-owner"
+    },
+    "scrum": {
+      "label": "The Scrum Guide",
+      "url": "https://scrumguides.org/scrum-guide.html"
+    },
+    "pmi-quality": {
+      "label": "PMI · Quality and acceptance",
+      "url": "https://www.pmi.org/learning/library/partnership-project-managers-business-analysts-9865"
+    },
+    "pmi-compression": {
+      "label": "PMI · Schedule compression",
+      "url": "https://www.pmi.org/learning/library/2019/04/07/15/35/managing-crashed-fastracked-shorten-interval-project-7603"
+    },
+    "pmi-critical": {
+      "label": "PMI · Critical path and crashing",
+      "url": "https://www.pmi.org/learning/library/schedule-crashing-meet-deadlines-tips-2186"
+    },
+    "pmi-evm": {
+      "label": "PMI · Earned value",
+      "url": "https://www.pmi.org/blog/earned-value-management"
+    },
+    "pmi-spi": {
+      "label": "PMI · SPI limitations",
+      "url": "https://www.pmi.org/learning/library/make-earned-value-work-project-6001?trk=article-ssr-frontend-pulse_little-text-block"
+    },
+    "pmi-transfer": {
+      "label": "PMI · Risk response",
+      "url": "https://www.pmi.org/learning/library/risk-management-9096"
+    },
+    "pmi-response": {
+      "label": "PMI · Threats and opportunities",
+      "url": "https://www.pmi.org/learning/library/mistakes-made-managing-project-risks-6239"
+    },
+    "pmi-opportunity": {
+      "label": "PMI · Opportunity strategies",
+      "url": "https://www.pmi.org/learning/library/effective-strategies-exploiting-opportunities-7947"
+    },
+    "pmi-share": {
+      "label": "PMI · Transfer and share",
+      "url": "https://www.pmi.org/learning/library/risky-project-doing-it-9351"
+    },
+    "asq-seven": {
+      "label": "ASQ · Seven quality tools",
+      "url": "https://asq.org/quality-resources/seven-basic-quality-tools"
+    },
+    "asq-rca": {
+      "label": "ASQ · Cause analysis",
+      "url": "https://asq.org/quality-resources/root-cause-analysis/tools"
+    },
+    "asq-tools": {
+      "label": "ASQ · Quality tools",
+      "url": "https://asq.org/quality-resources/quality-tools"
+    },
+    "asq-control": {
+      "label": "ASQ · Control chart",
+      "url": "https://asq.org/quality-resources/control-chart"
+    },
+    "apm-resource": {
+      "label": "APM · Resource optimisation",
+      "url": "https://www.apm.org.uk/resources/what-is-project-management/what-is-resource-optimisation/"
+    },
+    "pmi-lexicon": {
+      "label": "PMI · Lexicon of project management terms",
+      "url": "https://www.pmi.org/-/media/pmi/documents/registered/pdf/pmbok-standards/pmi-lexicon-pm-terms.pdf?rev=447328d841c249af985d14177ddd5f95"
+    }
+  },
+  "tips": [
+    {
+      "id": "first-next",
+      "category": "mindset",
+      "cues": [
+        "FIRST",
+        "NEXT",
+        "initial action"
+      ],
+      "en": "New situation, not yet assessed → assess impact before acting.",
+      "vi": "Tình huống mới, chưa đánh giá → làm rõ tác động trước khi hành động.",
+      "sourceIds": [
+        "pmi-sample"
+      ],
+      "cautionEn": "Skip steps already completed; urgent situations may require immediate action.",
+      "cautionVi": "Không lặp bước đã làm; tình huống khẩn cấp có thể cần xử lý ngay."
+    },
+    {
+      "id": "negative-question",
+      "category": "mindset",
+      "cues": [
+        "NOT",
+        "EXCEPT",
+        "LEAST likely"
+      ],
+      "en": "Check whether the question asks for the exception or least suitable action.",
+      "vi": "Kiểm tra đề có yêu cầu chọn ngoại lệ hoặc hành động ít phù hợp nhất không.",
+      "sourceIds": [],
+      "cautionEn": "Reading technique, not an answer rule.",
+      "cautionVi": "Kỹ thuật đọc đề, không phải khóa đáp án."
+    },
+    {
+      "id": "two-plausible",
+      "category": "mindset",
+      "cues": [
+        "BEST",
+        "MOST appropriate",
+        "SHOULD"
+      ],
+      "en": "Two plausible answers → compare role, timing, project approach and completed steps.",
+      "vi": "Hai đáp án hợp lý → so vai trò, thời điểm, cách tiếp cận và bước đã làm.",
+      "sourceIds": [],
+      "cautionEn": "A study checklist, not an official PMI scoring rule.",
+      "cautionVi": "Danh sách tự kiểm tra, không phải quy tắc chấm điểm của PMI."
+    },
+    {
+      "id": "predictive-change",
+      "category": "change",
+      "cues": [
+        "predictive",
+        "baseline",
+        "change request",
+        "additional feature"
+      ],
+      "en": "Predictive scope change → assess impact and follow change control.",
+      "vi": "Thay đổi phạm vi Predictive → đánh giá tác động và theo quy trình thay đổi.",
+      "sourceIds": [
+        "pmi-sample"
+      ],
+      "cautionEn": "Follow the established approval authority; not every change goes to a CCB.",
+      "cautionVi": "Theo đúng thẩm quyền đã quy định; không phải thay đổi nào cũng đưa lên CCB."
+    },
+    {
+      "id": "conflict-collaborate",
+      "category": "people",
+      "cues": [
+        "conflict",
+        "disagreement",
+        "win-win"
+      ],
+      "en": "Long-term, mutual resolution → collaborate / problem-solve.",
+      "vi": "Giải quyết lâu dài, cùng có lợi → hợp tác giải quyết vấn đề.",
+      "sourceIds": [
+        "pmi-conflict"
+      ],
+      "cautionEn": "Other approaches may fit urgency and context.",
+      "cautionVi": "Cách khác có thể phù hợp tùy mức khẩn cấp và bối cảnh."
+    },
+    {
+      "id": "clarify-roles",
+      "category": "people",
+      "cues": [
+        "misunderstanding",
+        "unclear roles",
+        "conflicting expectations"
+      ],
+      "en": "Misunderstanding or unclear roles → listen, clarify and align responsibilities.",
+      "vi": "Hiểu nhầm hoặc vai trò không rõ → lắng nghe, làm rõ và thống nhất trách nhiệm.",
+      "sourceIds": [
+        "pmi-conflict"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "escalate",
+      "category": "people",
+      "cues": [
+        "beyond authority",
+        "outside authority",
+        "cannot resolve"
+      ],
+      "en": "Beyond the PM’s authority → escalate to the appropriate decision-maker.",
+      "vi": "Vượt thẩm quyền PM → chuyển đến đúng cấp có quyền quyết định.",
+      "sourceIds": [
+        "pmi-escalation"
+      ],
+      "cautionEn": "Do not apply “never escalate” or escalate every issue.",
+      "cautionVi": "Không học “không bao giờ escalate”, cũng không đẩy mọi vấn đề lên trên."
+    },
+    {
+      "id": "risk-future",
+      "category": "risk",
+      "cues": [
+        "might happen",
+        "could occur",
+        "uncertain event"
+      ],
+      "en": "Uncertain future event → risk.",
+      "vi": "Sự kiện tương lai chưa chắc xảy ra → rủi ro.",
+      "sourceIds": [
+        "pmi-risk"
+      ],
+      "cautionEn": "Classify the event, not merely a word such as “may”.",
+      "cautionVi": "Phân loại sự kiện, không chỉ bắt một chữ “may”."
+    },
+    {
+      "id": "issue-now",
+      "category": "risk",
+      "cues": [
+        "has occurred",
+        "already happened",
+        "current problem"
+      ],
+      "en": "An event already happening → issue.",
+      "vi": "Sự việc đã hoặc đang xảy ra → vấn đề hiện tại.",
+      "sourceIds": [
+        "pmi-risk"
+      ],
+      "cautionEn": "An issue can also create future risks.",
+      "cautionVi": "Một vấn đề hiện tại vẫn có thể tạo rủi ro tương lai."
+    },
+    {
+      "id": "backlog-owner",
+      "category": "agile",
+      "cues": [
+        "prioritize backlog",
+        "order backlog",
+        "business value"
+      ],
+      "en": "Product Backlog ordering → Product Owner.",
+      "vi": "Thứ tự ưu tiên Product Backlog → Product Owner.",
+      "sourceIds": [
+        "pmi-po"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "scrum-estimate",
+      "category": "agile",
+      "cues": [
+        "estimate",
+        "size work",
+        "story points"
+      ],
+      "en": "Scrum work sizing → Developers doing the work.",
+      "vi": "Ước lượng công việc Scrum → Developers thực hiện công việc.",
+      "sourceIds": [
+        "scrum"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "scrum-selfmanage",
+      "category": "agile",
+      "cues": [
+        "assign tasks",
+        "how work gets done",
+        "self-managing"
+      ],
+      "en": "How Scrum work gets done → Developers self-manage.",
+      "vi": "Cách thực hiện công việc Scrum → Developers tự quản.",
+      "sourceIds": [
+        "scrum"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "sprint-change",
+      "category": "agile",
+      "cues": [
+        "during sprint",
+        "new requirement",
+        "Sprint Goal"
+      ],
+      "en": "Sprint scope change → negotiate with Product Owner; protect Sprint Goal.",
+      "vi": "Đổi phạm vi Sprint → thương lượng với Product Owner, giữ Sprint Goal.",
+      "sourceIds": [
+        "scrum"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "sprint-cancel",
+      "category": "agile",
+      "cues": [
+        "obsolete Sprint Goal",
+        "cancel Sprint"
+      ],
+      "en": "Obsolete Sprint Goal → Product Owner may cancel Sprint.",
+      "vi": "Sprint Goal lỗi thời → Product Owner có thể hủy Sprint.",
+      "sourceIds": [
+        "scrum"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "sprint-review",
+      "category": "agile",
+      "cues": [
+        "product feedback",
+        "inspect outcome",
+        "Sprint Review"
+      ],
+      "en": "Product outcome and stakeholder feedback → Sprint Review.",
+      "vi": "Kết quả sản phẩm, phản hồi stakeholder → Sprint Review.",
+      "sourceIds": [
+        "scrum"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "sprint-retro",
+      "category": "agile",
+      "cues": [
+        "improve teamwork",
+        "ways of working",
+        "retrospective"
+      ],
+      "en": "Improve teamwork and process → Sprint Retrospective.",
+      "vi": "Cải thiện phối hợp, quy trình → Sprint Retrospective.",
+      "sourceIds": [
+        "scrum"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "definition-done",
+      "category": "agile",
+      "cues": [
+        "Definition of Done",
+        "unfinished item"
+      ],
+      "en": "Not meeting Definition of Done → not a completed Increment.",
+      "vi": "Chưa đạt Definition of Done → chưa phải Increment hoàn thành.",
+      "sourceIds": [
+        "scrum"
+      ],
+      "cautionEn": "Return unfinished work to the Product Backlog.",
+      "cautionVi": "Đưa việc chưa xong về Product Backlog."
+    },
+    {
+      "id": "sprint-capacity",
+      "category": "agile",
+      "cues": [
+        "capacity",
+        "past performance",
+        "Sprint forecast"
+      ],
+      "en": "Sprint forecast → past performance, upcoming capacity and Definition of Done.",
+      "vi": "Dự báo Sprint → kết quả trước, năng lực sắp tới và Definition of Done.",
+      "sourceIds": [
+        "scrum"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "control-quality",
+      "category": "quality",
+      "cues": [
+        "inspect",
+        "test specifications",
+        "quality requirements"
+      ],
+      "en": "Verify deliverables against quality requirements → Control Quality.",
+      "vi": "Kiểm tra sản phẩm đạt yêu cầu chất lượng → Control Quality.",
+      "sourceIds": [
+        "pmi-quality"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "validate-scope",
+      "category": "quality",
+      "cues": [
+        "formal acceptance",
+        "customer sign-off",
+        "accepted deliverables"
+      ],
+      "en": "Formal customer acceptance → Validate Scope.",
+      "vi": "Khách hàng chính thức chấp nhận sản phẩm → Validate Scope.",
+      "sourceIds": [
+        "pmi-quality"
+      ],
+      "cautionEn": "Distinguish acceptance from internal quality inspection.",
+      "cautionVi": "Phân biệt nghiệm thu với kiểm tra chất lượng nội bộ."
+    },
+    {
+      "id": "crashing",
+      "category": "schedule",
+      "cues": [
+        "add resources",
+        "overtime",
+        "shorten schedule"
+      ],
+      "en": "Shorten duration using extra resources → crashing.",
+      "vi": "Rút thời lượng bằng thêm nguồn lực → crashing.",
+      "sourceIds": [
+        "pmi-compression"
+      ],
+      "cautionEn": "Check added cost and whether extra resources actually reduce duration.",
+      "cautionVi": "Xét chi phí tăng và nguồn lực thêm có thực sự rút thời gian không."
+    },
+    {
+      "id": "fast-tracking",
+      "category": "schedule",
+      "cues": [
+        "overlap activities",
+        "parallel activities",
+        "normally sequential"
+      ],
+      "en": "Overlap normally sequential activities → fast tracking.",
+      "vi": "Cho công việc vốn tuần tự chạy chồng lên nhau → fast tracking.",
+      "sourceIds": [
+        "pmi-compression"
+      ],
+      "cautionEn": "Can increase rework and risk; dependencies must permit overlap.",
+      "cautionVi": "Có thể tăng làm lại và rủi ro; phải xét phụ thuộc."
+    },
+    {
+      "id": "critical-path",
+      "category": "schedule",
+      "cues": [
+        "finish earlier",
+        "critical path",
+        "project completion date"
+      ],
+      "en": "Earlier project completion → examine the critical path first.",
+      "vi": "Muốn dự án kết thúc sớm → xem đường găng trước.",
+      "sourceIds": [
+        "pmi-critical"
+      ],
+      "cautionEn": "Shortening non-critical work may not shorten the project.",
+      "cautionVi": "Rút việc ngoài đường găng chưa chắc rút ngắn dự án."
+    },
+    {
+      "id": "cpi",
+      "category": "cost",
+      "cues": [
+        "CPI",
+        "EV / AC",
+        "cost performance"
+      ],
+      "en": "CPI = EV / AC. Below 1: unfavorable cost efficiency; above 1: favorable.",
+      "vi": "CPI = EV / AC. Dưới 1: hiệu quả chi phí bất lợi; trên 1: thuận lợi.",
+      "sourceIds": [
+        "pmi-evm"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "spi",
+      "category": "cost",
+      "cues": [
+        "SPI",
+        "EV / PV",
+        "schedule performance"
+      ],
+      "en": "SPI = EV / PV. Below 1: less work accomplished than planned.",
+      "vi": "SPI = EV / PV. Dưới 1: khối lượng đạt được thấp hơn kế hoạch.",
+      "sourceIds": [
+        "pmi-evm",
+        "pmi-spi"
+      ],
+      "cautionEn": "Check the critical path before predicting the finish date.",
+      "cautionVi": "Xem đường găng trước khi kết luận ngày hoàn thành."
+    },
+    {
+      "id": "transfer",
+      "category": "risk",
+      "cues": [
+        "buy insurance",
+        "transfer liability",
+        "third party bears loss"
+      ],
+      "en": "Transfer financial liability → transfer risk.",
+      "vi": "Chuyển trách nhiệm tổn thất tài chính → chuyển giao rủi ro.",
+      "sourceIds": [
+        "pmi-transfer"
+      ],
+      "cautionEn": "Insurance does not eliminate the event’s probability.",
+      "cautionVi": "Bảo hiểm không loại bỏ xác suất sự cố."
+    },
+    {
+      "id": "avoid",
+      "category": "risk",
+      "cues": [
+        "eliminate threat",
+        "remove exposure entirely"
+      ],
+      "en": "Remove the threat or exposure entirely → avoid.",
+      "vi": "Loại bỏ hoàn toàn đe dọa hoặc tiếp xúc → avoid.",
+      "sourceIds": [
+        "pmi-response"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "mitigate",
+      "category": "risk",
+      "cues": [
+        "reduce probability",
+        "reduce negative impact"
+      ],
+      "en": "Reduce threat probability or impact → mitigate.",
+      "vi": "Giảm xác suất hoặc tác động đe dọa → mitigate.",
+      "sourceIds": [
+        "pmi-opportunity"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "exploit",
+      "category": "risk",
+      "cues": [
+        "ensure opportunity",
+        "make opportunity certain"
+      ],
+      "en": "Ensure an opportunity happens → exploit.",
+      "vi": "Bảo đảm cơ hội xảy ra → exploit.",
+      "sourceIds": [
+        "pmi-response"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "enhance",
+      "category": "risk",
+      "cues": [
+        "increase probability",
+        "increase positive impact"
+      ],
+      "en": "Increase opportunity probability or benefit → enhance.",
+      "vi": "Tăng khả năng hoặc lợi ích cơ hội → enhance.",
+      "sourceIds": [
+        "pmi-opportunity"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "share",
+      "category": "risk",
+      "cues": [
+        "partner",
+        "opportunity",
+        "joint benefit"
+      ],
+      "en": "Partner to capture an opportunity → share.",
+      "vi": "Hợp tác cùng tận dụng cơ hội → share.",
+      "sourceIds": [
+        "pmi-share"
+      ],
+      "cautionEn": "A third party can mean share or transfer; check upside versus downside.",
+      "cautionVi": "Có bên thứ ba chưa đủ; phân biệt cơ hội và tổn thất."
+    },
+    {
+      "id": "accept",
+      "category": "risk",
+      "cues": [
+        "accept risk",
+        "no preventive action",
+        "contingency reserve"
+      ],
+      "en": "Acknowledge risk without preventive intervention → accept.",
+      "vi": "Chấp nhận rủi ro, không can thiệp phòng ngừa → accept.",
+      "sourceIds": [
+        "pmi-opportunity"
+      ],
+      "cautionEn": "Monitoring and contingency preparation can still be appropriate.",
+      "cautionVi": "Vẫn có thể theo dõi và chuẩn bị dự phòng."
+    },
+    {
+      "id": "pareto",
+      "category": "tools",
+      "cues": [
+        "80/20",
+        "vital few",
+        "major defect categories"
+      ],
+      "en": "Prioritize the few categories causing most problems → Pareto chart.",
+      "vi": "Ưu tiên ít nhóm gây phần lớn vấn đề → biểu đồ Pareto.",
+      "sourceIds": [
+        "asq-seven"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "fishbone",
+      "category": "tools",
+      "cues": [
+        "cause and effect",
+        "categories of causes",
+        "Ishikawa"
+      ],
+      "en": "Group possible causes of a problem → fishbone / Ishikawa diagram.",
+      "vi": "Phân nhóm nguyên nhân có thể gây vấn đề → biểu đồ xương cá.",
+      "sourceIds": [
+        "asq-rca"
+      ],
+      "cautionEn": "“Root cause” alone can also refer to other analysis techniques.",
+      "cautionVi": "Chỉ “root cause” chưa đủ; còn công cụ phân tích khác."
+    },
+    {
+      "id": "scatter",
+      "category": "tools",
+      "cues": [
+        "correlation",
+        "two variables",
+        "relationship between X and Y"
+      ],
+      "en": "Relationship between two variables → scatter diagram.",
+      "vi": "Tương quan giữa hai biến → biểu đồ phân tán.",
+      "sourceIds": [
+        "asq-tools"
+      ],
+      "cautionEn": "Correlation does not establish causation.",
+      "cautionVi": "Tương quan không khẳng định quan hệ nhân quả."
+    },
+    {
+      "id": "control-chart",
+      "category": "tools",
+      "cues": [
+        "control limits",
+        "process stability",
+        "out-of-control"
+      ],
+      "en": "Process stability and control limits → control chart.",
+      "vi": "Độ ổn định quy trình, giới hạn kiểm soát → biểu đồ kiểm soát.",
+      "sourceIds": [
+        "asq-control"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "histogram",
+      "category": "tools",
+      "cues": [
+        "frequency distribution",
+        "distribution of measurements"
+      ],
+      "en": "Measurement frequency distribution → histogram.",
+      "vi": "Phân bố tần suất số đo → histogram.",
+      "sourceIds": [
+        "asq-tools"
+      ],
+      "cautionEn": "Unlike Pareto, this is not primarily ranking defect categories.",
+      "cautionVi": "Không chủ yếu xếp hạng nhóm lỗi như Pareto."
+    },
+    {
+      "id": "check-sheet",
+      "category": "tools",
+      "cues": [
+        "tally marks",
+        "count defect occurrences"
+      ],
+      "en": "Tally defect occurrences → check sheet.",
+      "vi": "Gạch đếm số lần xuất hiện lỗi → check sheet.",
+      "sourceIds": [
+        "asq-seven"
+      ],
+      "cautionEn": "A checklist verifies steps; a check sheet records data.",
+      "cautionVi": "Checklist kiểm đủ bước; check sheet ghi dữ liệu."
+    },
+    {
+      "id": "flowchart",
+      "category": "tools",
+      "cues": [
+        "sequence of steps",
+        "decision points",
+        "process flow"
+      ],
+      "en": "Process steps and decision branches → flowchart.",
+      "vi": "Các bước quy trình, nhánh quyết định → lưu đồ.",
+      "sourceIds": [
+        "asq-tools"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "leveling",
+      "category": "schedule",
+      "cues": [
+        "overallocated",
+        "resource availability",
+        "limited resources"
+      ],
+      "en": "Resolve resource overallocation → consider resource leveling.",
+      "vi": "Xử lý phân bổ nguồn lực quá mức → cân nhắc leveling.",
+      "sourceIds": [
+        "apm-resource"
+      ],
+      "cautionEn": "Activity dates and project duration may change.",
+      "cautionVi": "Ngày thực hiện và thời lượng dự án có thể đổi."
+    },
+    {
+      "id": "smoothing",
+      "category": "schedule",
+      "cues": [
+        "available float",
+        "without delaying completion",
+        "resource smoothing"
+      ],
+      "en": "Balance resources within float, preserving completion date → smoothing.",
+      "vi": "Điều hòa nguồn lực trong độ dự trữ, giữ ngày kết thúc → smoothing.",
+      "sourceIds": [
+        "apm-resource"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "raci",
+      "category": "documents",
+      "cues": [
+        "Responsible",
+        "Accountable",
+        "Consulted",
+        "Informed"
+      ],
+      "en": "Define who does, owns, advises and is notified → RACI matrix.",
+      "vi": "Xác định người làm, chịu trách nhiệm, tham vấn, nhận tin → RACI.",
+      "sourceIds": [
+        "pmi-lexicon"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "rtm",
+      "category": "documents",
+      "cues": [
+        "trace requirements",
+        "requirement origin",
+        "traceability"
+      ],
+      "en": "Link requirements from origin to deliverables → requirements traceability matrix.",
+      "vi": "Liên kết yêu cầu từ nguồn gốc đến sản phẩm → ma trận truy xuất yêu cầu.",
+      "sourceIds": [
+        "pmi-lexicon"
+      ],
+      "cautionEn": "",
+      "cautionVi": ""
+    },
+    {
+      "id": "wbs",
+      "category": "documents",
+      "cues": [
+        "hierarchical decomposition",
+        "work package",
+        "total scope"
+      ],
+      "en": "Decompose total project work into work packages → WBS.",
+      "vi": "Phân rã công việc dự án thành gói công việc → WBS.",
+      "sourceIds": [
+        "pmi-lexicon"
+      ],
+      "cautionEn": "A WBS is not a project schedule.",
+      "cautionVi": "WBS không phải lịch tiến độ."
+    }
+  ]
+}

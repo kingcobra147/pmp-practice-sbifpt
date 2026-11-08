@@ -2,6 +2,10 @@
 
 Bản dành riêng cho Vercel, thay cho gói Node/Docker trước đó. Giao diện React + Vite, API Vercel Functions (Node.js 22), database Turso/libSQL qua mạng. Không dùng SQLite file để lưu tiến độ trên Vercel.
 
+## Mẹo làm bài — v3.1
+
+Có thư viện 44 mẹo song ngữ, tìm kiếm/lọc theo nhóm và nút **Mẹo cho câu này** mở theo yêu cầu trong ngân hàng, bài làm và kết quả. Mẹo được nhận diện từ nội dung câu hỏi; không cần AI hoặc API key. Xem [hướng dẫn Mẹo làm bài](MEO_LAM_BAI.md).
+
 ## Bản nâng cấp tự ôn
 
 Đã bổ sung kế hoạch hôm nay, mục tiêu hằng ngày, ôn tập cách quãng, thống kê điểm yếu/chủ đề, biểu đồ 8 tuần, bộ lọc tạo bài, ghi chú và mức tự tin. Có bản nháp trên máy, tự thử lại khi kết nối lỗi và lựa chọn phục hồi khi xung đột. Xem [hướng dẫn nâng cấp](NANG_CAP.md) để biết cách dùng và giới hạn.
